@@ -16,10 +16,10 @@ public class CheckoutCartTest {
 		checkoutCart = new CheckoutCart(); 
 	}
 	
-	@Test(expected=NullPointerException.class)
+	@Test(expected=Exception.class)
 	public void testGetTotalCostWithNull() throws Exception
 	{
-		assertNull(checkoutCart.getTotalCost(null));
+		checkoutCart.getTotalCost(null);
 	}
 	
 	@Test
@@ -65,7 +65,7 @@ public class CheckoutCartTest {
 		assertEquals("£0.00", checkoutCart.getTotalCost(items));
 	}	
 	
-	@Test(expected=Exception.class)
+	@Test(expected = Exception.class)
 	public void testGetTotalCostWithApplesAndPear() throws Exception
 	{
 		//Arrange
@@ -92,7 +92,7 @@ public class CheckoutCartTest {
 		items.add("Apple");
 		
 		//Act and Assert
-		assertEquals("£3.00", checkoutCart.getTotalCost(items));		
+		assertEquals("£1.80", checkoutCart.getTotalCost(items));		
 	}
 	
 	@Test
@@ -105,7 +105,7 @@ public class CheckoutCartTest {
 		items.add("Orange");		
 		
 		//Act and Assert
-		assertEquals("£0.75", checkoutCart.getTotalCost(items));		
+		assertEquals("£0.50", checkoutCart.getTotalCost(items));		
 	}
 	
 	@Test
@@ -120,6 +120,6 @@ public class CheckoutCartTest {
 		items.add("Orange");
 		
 		//Act and Assert
-		assertEquals("£1.95", checkoutCart.getTotalCost(items));		
+		assertEquals("£1.10", checkoutCart.getTotalCost(items));		
 	}	
 }
